@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>PI Info Screen</title>
+
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    
+       
+        <script src="js/jquery.min.js"></script>
+        
+        <script src="js/live.js#html"></script>
+        
+        <!-- weather -->
+        <link rel="stylesheet" href="css/weather.css">
+        <script src="js/jquery.simpleWeather.min.js"></script>
+        <script>
+            // Docs at http://simpleweatherjs.com
+            $(document).ready(function() {
+              $.simpleWeather({
+                location: 'Bonn, Germany',
+                woeid: '',
+                unit: 'f',
+                success: function(weather) {
+                  html = '<br/><br/><br/><br/><h2><i class="icon-'+weather.code+'"></i> '+weather.tempAlt+'&deg;'+weather.units.tempAlt+'</h2>';
+                  html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+                  html += '<li class="currently">'+weather.currently+'</li>';
+                  html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+              
+                  $("#weather").html(html);
+                },
+                error: function(error) {
+                  $("#weather").html('<p>'+error+'</p>');
+                }
+              });
+            });
+            </script>
+
+    </head>
+
+    <body>
+        
+        <!-- Template -->
+        <div style="position:fixed;bottom:0;left:50%;margin-left:-300px; /*negative half the width */ width:600px;height:110px; "><b></b>
+            <img style="margin:5px;" src="css/BMBF.jpg"/><img style="margin:5px;" src="css/ATLAS101.jpg"/><img style="margin:5px;" src="css/PHTH.jpg"/><img style="margin:5px;" src="css/dfg_logo.gif"/>
+        </div>
+        
+        <div style="position:fixed;top:1%;right:1%;"><b></b>
+            <img style="margin:5px;" src="css/logoUni.png"/>
+        </div>
+        
+        <div style="position:fixed;top:1%;left:1%;"><b></b>
+            <img style="margin:5px;" src="css/logoPi.png"/>
+        </div>
+        
+        
+        <div class="reveal">
+            
+            <!-- #################################################################### -->
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <!-- #################################################################### -->
+            <div class="slides">
+                
+                <section>
+                    <h2>Our Group</h2>
+                    <img class="stretch" src="slides/GroupPicutre.jpeg" />
+                </section>
+                
+                
+                <section data-autoslide="10000">
+                     <iframe class="stretch" src="http://pi.physik.uni-bonn.de/pi_plone/presentation_events.php" ></iframe>
+                </section>
+
+                <section>
+                    <h2>Weather in Bonn</h2>
+                    <div id="weather"></div>
+                </section>
+                
+                <section>
+                     <h2>LHC Status</h2>
+                    <img class="stretch" src="http://vistar-capture.web.cern.ch/vistar-capture/lhc1.png" >
+                </section>
+                
+                <section>
+                    <img class="stretch" src="slides/Poster_Detector_Physics_2014_2_klein.png" >
+                </section>
+                
+                <section>
+                    <h2>Picture of the Quarter</h2>
+                    <p  align="justify">
+                    <img style="border-color: white; margin: 10px" align="left" src="http://www.pi.uni-bonn.de/aktuelles/bild-des-quartals/1.-quartal-2014-zwei-erc-preistraeger/image_mini"/>
+                    This year the Physics Institute of the University of Bonn succeeded in winning two ERC (European Research Council) projects. 
+                    In one of the supported projects Markus Cristinziani will investigate the interaction between top quarks and neutral bosons in the search for new physics while Michael Kohl 
+                    explores new creation mechanisms of superfluidity and superconductivity. Each projected is funded with 2 million Euro.
+                    </p>
+                </section>
+                
+                <section>
+                     <h2>ATLAS Tracker</h2>
+                     <img class="stretch" src="slides/ATLAS_TR.jpg" />
+                </section>
+                
+                <!--
+                
+                <section data-autoslide="30000">
+                    <video class="stretch" data-autoplay>
+                        <source src="http://mediastream.cern.ch/MediaArchive/Video/Public/Movies/2012/CERN-MOVIE-2012-110/CERN-MOVIE-2012-110-0600-kbps-maxH-360-25-fps-audio-128-kbps-48-kHz-stereo.mp4" type="video/mp4"  />
+                        Your browser does not support HTML5 video play.
+                    </video>
+                </section>
+                -->
+				
+                <!-- #################################################################### -->
+                <!--                End of slides                                           -->
+                <!-- #################################################################### -->
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: false,
+                progress: true,
+                history: true,
+                center: true,
+                autoSlide : 5000,
+                loop: true,
+                autoSlideStoppable: false,
+                
+				width: 1600,
+				height: 1200,
+	
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
