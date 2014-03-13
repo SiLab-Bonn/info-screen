@@ -27,7 +27,7 @@
       pendingRequests = {},
       currentLinkElements = {},
       oldLinkElements = {},
-      interval = 600000,
+      interval = 60000,
       loaded = false,
       active = { "html": 1, "css": 1, "js": 1 };
 
@@ -133,7 +133,7 @@
             //if (hasChanged) {
               Live.refreshResource(url, contentType);
             //  break;
-            }
+            //}
           }
         });
       }
