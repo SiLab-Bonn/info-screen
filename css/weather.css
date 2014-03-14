@@ -111,3 +111,29 @@
 #weather .currently {
   margin: 0 20px;
 }
+
+#forcast table  {
+ width: 1000px;
+ border: 10;
+ align: center;
+ text-align: center;
+ margin: auto;
+ font: 40px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+ 
+ 
+}
+
+#forcast td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#forcast i {
+
+  font-family: weather;
+  font-size: 150px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+}
+
