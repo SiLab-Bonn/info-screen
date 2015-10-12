@@ -1,6 +1,6 @@
 # Info Screen at PI Bonn
 
-Info Screen is simple static webside build base on [reavel.js](http://lab.hakim.se/reveal-js/) framework.
+Info Screen is simple static webside build base on [reavel.js](http://lab.hakim.se/reveal-js/) framework sarved by [GitHub Pages](https://pages.github.com/) at http://silab-bonn.github.io/info-screen/ .
 
 [live.js](http://livejs.com/) for auto refresh.
 
