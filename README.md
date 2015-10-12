@@ -1,11 +1,12 @@
-# Info Screen Presentation
+# Info Screen at PI Bonn
 
-Info Screen is simple static webside build base on reavel.js framework.
+Info Screen is simple static webside build base on [reavel.js](http://lab.hakim.se/reveal-js/) framework.
+[live.js](http://livejs.com/ for auto refresh.
+(simpleWeather)[http://simpleweatherjs.com] for weather.
 
 To edit/change modified index.html file.
 More detail how to use this can be found under https://github.com/hakimel/reveal.js
 
-Modified live.js scripts should force browser refresh every 10min.
 
 ## Raspberry Pi setup
 
