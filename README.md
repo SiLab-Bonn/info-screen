@@ -27,11 +27,6 @@ xte 'sleep 10' 'key F11' &
 xte 'sleep 20' 'key F5' &
 unclutter &
 epiphany-browser -a  --profile ~/.config http://silab-bonn.github.io/info-screen
-while true
-do
- sleep 300
- xte 'key F5'
-done
 ```
 
 Init:
