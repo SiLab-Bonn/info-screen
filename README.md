@@ -15,34 +15,30 @@ More detail how to use this can be found under https://github.com/hakimel/reveal
 Needed packages:
 
 ```bash
-sudo apt-get install tint2 xautomation unclutter
+sudo apt-get install xautomation unclutter
 ```
 
 Startup script (kiosk.sh):
 
 ```bash
 #!/bin/bash
-openbox --config-file ~/.config/openbox/LXDE-rc.xml --startup tint2 &
 xset -dpms
 xset s off
-xset -s noblank
-xte 'sleep 10' 'key F11' &
-xte 'sleep 20' 'key F5' &
+xset s noblank
 unclutter &
-epiphany-browser -a  --profile ~/.config http://silab-bonn.github.io/info-screen
+epiphany-browser -a --profile ~/.config http://silab-bonn.github.io/info-screen &
+sleep 15
+xte 'key F11'
 ```
 
-Init:
+Init /home/pi/config/lxsession/LXDE-pi/autostart:
 
 ```bash
-xinit ./kiosk.sh
+@/home/pi/kiosk.sh
 ```
 
-Example cron reboot:
+Example cron reboot (as root):
 
 ```bash
 0 4 * * * reboot
 ```
-
-
-
