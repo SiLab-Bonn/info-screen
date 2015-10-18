@@ -18,27 +18,31 @@ Needed packages:
 sudo apt-get install xautomation unclutter
 ```
 
-Startup script (kiosk.sh):
-
-```bash
-#!/bin/bash
-xset -dpms
-xset s off
-xset s noblank
-unclutter &
-epiphany-browser -a --profile ~/.config http://silab-bonn.github.io/info-screen &
-sleep 15
-xte 'key F11'
-```
-
 Init /home/pi/config/lxsession/LXDE-pi/autostart:
 
 ```bash
-@/home/pi/kiosk.sh
+@xset -dpms
+@xset s off
+@xset s noblank
+@unclutter &
 ```
 
-Example cron reboot (as root):
+Watchdog script to start browser if not running (watchdog.sh):
 
 ```bash
-0 4 * * * reboot
+#!/bin/bash
+PROCESS=epiphany-browser
+PIDS=`ps ax | grep -v grep | grep $PROCESS | grep -o '^[ ]*[0-9]*'`
+if [ -z "$PIDS" ]; then
+  epiphany-browser -a --profile ~/.config http://silab-bonn.github.io/info-screen --display=:0 &
+  sleep 15s;
+  xte "key F11" -x:0
+fi
+```
+
+Example cron script (crontab -e):
+
+```bash
+15 5 * * * sudo reboot
+*/1 * * * * /home/pi/watchdog.sh
 ```
