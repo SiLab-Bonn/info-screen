@@ -31,8 +31,7 @@ Watchdog script to start browser if not running (watchdog.sh):
 
 ```bash
 #!/bin/bash
-PROCESS=epiphany-browser
-PIDS=`ps ax | grep -v grep | grep $PROCESS | grep -o '^[ ]*[0-9]*'`
+PIDS=`ps ax | grep -v grep | grep epiphany-browser | grep -o '^[ ]*[0-9]*'`
 if [ -z "$PIDS" ]; then
   epiphany-browser -a --profile ~/.config http://silab-bonn.github.io/info-screen --display=:0 &
   sleep 15s;
