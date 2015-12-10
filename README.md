@@ -31,11 +31,30 @@ Watchdog script to start browser if not running (watchdog.sh):
 
 ```bash
 #!/bin/bash
-PIDS=`ps ax | grep -v grep | grep epiphany-browser | grep -o '^[ ]*[0-9]*'`
-if [ -z "$PIDS" ]; then
-  epiphany-browser -a --profile ~/.config http://silab-bonn.github.io/info-screen --display=:0 &
-  sleep 15s;
-  xte "key F11" -x:0
+PROCESS=epiphany-browser
+PIDS=`ps ax | grep -v grep | grep $PROCESS | grep -o '^[ ]*[0-9]*'`
+WEB=http://silab-bonn.github.io/info-screen
+PING=silab-bonn.github.io
+LXSESSION=`ps ax | grep -v grep | grep /usr/bin/lxsession | grep -o '^[ ]*[0-9]*'`
+
+if [ -z "$LXSESSION" ]
+then
+  echo $(date) NOLX >> /home/pi/watchdog.log
+  sudo reboot
+else
+  if ping -c 1 $PING &> /dev/null
+  then
+    if [ -z "$PIDS" ] 
+    then
+      echo $(date) START >> /home/pi/watchdog.log
+      epiphany-browser -a --profile ~/.config $WEB --display=:0 &
+      sleep 15s;
+      xte "key F11" -x:0
+    fi
+  else
+    echo $(date) NOPING>> /home/pi/watchdog.log
+    killall epiphany-browser
+  fi
 fi
 ```
 
