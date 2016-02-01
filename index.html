@@ -21,7 +21,7 @@
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
     
-        <script src="js/jquery.min.js"></script>    
+        <script src="js/jquery.min.js"></script>
         <script src="js/live.js#html"></script>
         
         <!-- weather -->
@@ -31,23 +31,23 @@
             // Docs at http://simpleweatherjs.com
             $(document).ready(function() {
               $.simpleWeather({
-                location: 'Bonn, Germany',
+                location: 'Bonn, DE',
                 woeid: '',
-                unit: 'f',
+                unit: 'c',
                 success: function(weather) {
-                  html = '<br/><br/><br/><br/><h2><i class="icon-'+weather.code+'"></i> '+weather.tempAlt+'&deg;'+weather.units.tempAlt+'</h2>';
+                  html = '<br/><br/><br/><br/><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
                   html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
                   html += '<li class="currently">'+weather.currently+'</li>';
-                  html += '<li>'+weather .wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+                  html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
                   
                   $("#weather").html(html);
                   
                   htmlf = '<table><tr><td> Today </td><td> Tomorrow </td> </tr>';
-                  htmlf += '<tr><td> <i class="icon-'+weather.todayCode+'"></i></td><td><i class="icon-'+weather.tomorrow.code+'"></i></td> </tr>';
-                  htmlf += '<tr><td> '+weather.highAlt+'&degC ('+weather.lowAlt+'&degC)</td><td>'+weather.tomorrow.highAlt+'&degC  ('+weather.tomorrow.lowAlt+'&degC)</td> </tr>';
+                  htmlf += '<tr><td> <i class="icon-'+weather.todayCode+'"></i></td><td><i class="icon-'+weather.forecast[1].code+'"></i></td> </tr>';
+                  htmlf += '<tr><td> '+weather.high+'&degC ('+weather.low+'&degC)</td><td>'+weather.forecast[1].high+'&degC  ('+weather.forecast[1].low+'&degC)</td> </tr>';
                   htmlf += '</table>';
                   
-                  
+
                   //var currentdate = new Date();
                   //htmlf += currentdate.getDay() + "/"+currentdate.getMonth() 
                   //+ "/" + currentdate.getFullYear() + " @ " 
