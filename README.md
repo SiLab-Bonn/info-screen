@@ -12,7 +12,7 @@ More detail how to use this can be found under https://github.com/hakimel/reveal
 
 ## Raspberry Pi setup
 
-Needed packages:
+Required packages:
 
 ```bash
 sudo apt-get install xautomation unclutter
