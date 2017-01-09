@@ -1,6 +1,6 @@
 # Info Screen at PI Bonn
 
-Info Screen is simple static webside build base on [reavel.js](http://lab.hakim.se/reveal-js/) framework sarved by [GitHub Pages](https://pages.github.com/) at http://silab-bonn.github.io/info-screen/ .
+Info Screen is a simple static website based on [reavel.js](http://lab.hakim.se/reveal-js/) framework served by [GitHub Pages](https://pages.github.com/) at http://silab-bonn.github.io/info-screen/ .
 
 [live.js](http://livejs.com/) for auto refresh.
 
@@ -12,7 +12,7 @@ More detail how to use this can be found under https://github.com/hakimel/reveal
 
 ## Raspberry Pi setup
 
-Needed packages:
+Required packages:
 
 ```bash
 sudo apt-get install xautomation unclutter
